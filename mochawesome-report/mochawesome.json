@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-10-21T17:01:32.331Z",
+    "end": "2020-10-21T17:01:49.546Z",
+    "duration": 17215,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "12b1918b-357f-4693-afa1-e43bcac19fa7",
+      "title": "",
+      "fullFile": "cypress\\integration\\Test4_fw.js",
+      "file": "cypress\\integration\\Test4_fw.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b8b2fdae-7cfd-4c78-b10d-5d1335c387c7",
+          "title": "Cypress Framework Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Case 1",
+              "fullTitle": "Cypress Framework Suite Test Case 1",
+              "timedOut": null,
+              "duration": 14508,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var _this = this;\nvar hp = new _homepage[\"default\"]();\ncy.visit(Cypress.env(\"url\") + \"/angularpractice/\");\nhp.getName().type(this.fw_data.name);\nhp.getGender().select(this.fw_data.gender);\nhp.getTWBind().should(\"have.value\", this.fw_data.name); //Confirm name displayed is correct - First way\nhp.getName().should(\"have.attr\", \"minlength\", this.fw_data.minlength); //Confirm min length of name\nhp.getErbtn().should(\"be.disabled\"); //cy.pause()\nhp.getShop().click().url().should(\"include\", this.fw_data.shop_url);\nthis.fw_data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n});\nhp.getCheckOut().click();\nvar sum = 0;\nhp.getItemPrices().each(function ($e1, index, $list) {\n  var prices = $e1.text().split(\" \");\n  sum = Number(sum) + Number(prices[1]);\n}).then(function () {\n  cy.log(sum);\n});\nhp.getPgTotal().then(function (element) {\n  var totalprice = element.text();\n  var atotal = totalprice.split(\" \");\n  expect(Number(atotal[1])).to.equal(sum);\n});\nhp.getChkOut().click();\nhp.getCountry().type(this.fw_data.country);\ncy.get(\".suggestions > ul > li > a\").click();\nhp.getCountry().should(\"include.value\", this.fw_data.country);\nhp.getConsent().click({\n  force: true\n});\nhp.getPurBtn().click();\nhp.getConf().should(\"include.text\", this.fw_data.confirm_text); //First assertion\nhp.getConf().then(function (element) {\n  //Second assertion (per lecture)\n  expect(element.text().includes(_this.fw_data.confirm_text)).to.be[\"true\"];\n});",
+              "err": {},
+              "uuid": "aca6400f-63ff-41b6-a1c6-8ac6b246c243",
+              "parentUUID": "b8b2fdae-7cfd-4c78-b10d-5d1335c387c7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aca6400f-63ff-41b6-a1c6-8ac6b246c243"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14508,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}

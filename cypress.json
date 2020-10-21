@@ -1,0 +1,10 @@
+{
+  "viewportWidth": 1600,
+  "viewportHeight": 1200,
+  "defaultCommandTimeout": 8000,
+  "reporter": "mochawesome",
+  "env": {
+    "url": "https://rahulshettyacademy.com"
+  },
+    "projectId": "7p7au8"
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Gertrude",
+    "gender": "Female",
+    "minlength": "2",
+    "shop_url": "shop",
+    "productName": ["Samsung Note 8", "Blackberry", "Nokia Edge"],
+    "country": "United Kingdom",
+    "confirm_text": "Success! Thank you! Your order will be delivered in next few weeks :-)."
+}
